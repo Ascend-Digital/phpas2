@@ -69,7 +69,7 @@ class Utils
      *
      * @return array
      */
-    public static function parseMessage($message, $EOL = "\n")
+    public static function parseMessage($message, $EOL = "\r\n")
     {
         if (empty($message)) {
             throw new \InvalidArgumentException('Invalid message');

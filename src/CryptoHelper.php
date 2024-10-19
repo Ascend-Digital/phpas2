@@ -331,7 +331,14 @@ class CryptoHelper
 
         $outFile = self::getTempFilename();
 
-        return openssl_pkcs7_verify($data, $flags, $outFile, $rootCerts) === true;
+        return openssl_pkcs7_verify(
+                   $data,
+                   $flags,
+                   $rootCerts[0],
+                   $rootCerts,
+                   null,
+                   $outFile
+               ) === true;
     }
 
     /**
