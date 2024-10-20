@@ -583,7 +583,7 @@ class Management implements LoggerAwareInterface
                     'Content-Type' => 'text/plain',
                     'Content-Transfer-Encoding' => '7bit', // TODO: check 8bit
                 ],
-                $confirmationText."\n"
+                $confirmationText."\r\n"
             )
         );
 
