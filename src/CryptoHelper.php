@@ -273,7 +273,10 @@ class CryptoHelper
             throw new \RuntimeException(sprintf('Failed to sign S/Mime message. Error: "%s".', openssl_error_string()));
         }
 
-        $payload = MimePart::fromString(file_get_contents($temp), false);
+        //The above is applying LF but not CR+LF, so we need to replace it
+        $message = preg_replace("/\r\n|\r|\n/", "\r\n", file_get_contents(($temp)));
+
+        $payload = MimePart::fromString($message, false);
 
         if ($micAlgo) {
             $contentType = $payload->getHeaderLine('content-type');
