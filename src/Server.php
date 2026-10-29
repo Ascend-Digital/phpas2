@@ -49,7 +49,7 @@ class Server
      *
      * @return Response
      */
-    public function execute(ServerRequestInterface $request = null)
+    public function execute(?ServerRequestInterface $request = null)
     {
         if (! $request) {
             $request = ServerRequest::fromGlobals();
